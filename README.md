@@ -34,8 +34,8 @@ Add a screenshot of your solution. The easiest way to do this is to use
 
 ### Links
 
-- Solution URL: [GitHub](https://your-solution-url.com)
-- Live Site URL: [Vercel](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/humbl3LilaS/tip-calculator-app-main.git)
+- Live Site URL: [Vercel](https://tip-calculator-app-puce-kappa.vercel.app/)
 
 ## My process
 
