@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- displays site properly based on user's device -->
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+	<link rel="stylesheet" href="css/style.css">
+	<title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+<body class="bg-grayishCyan-light font-spaceMono md:h-screen md:w-screen md:flex md:justify-center md:items-center">
+
+<div class="max-w-[860px]">
+	<header class="flex justify-center items-center py-7">
+		<img src="./images/logo.svg" alt="Logo Of bill splitter" class="fill-amber-800">
+	</header>
+
+	<div class="p-8 bg-white rounded-t-2xl flex flex-col md:flex-row md:space-x-6 md:rounded-b-2xl md:h-3/4">
+		<!--Calculator part-->
+		<div class="md:w-1/2">
+			<div class="flex flex-col  mb-5 relative">
+				<h2  class="mb-5 text-grayishCyan-normal">Bill</h2>
+				<div class="flex bg-grayishCyan-veryLight justify-between items-center text-right rounded-lg border-2">
+					<label for="bill" class="flex-1">
+						<span class="pl-5 mb-2 block"><img src="./images/icon-dollar.svg" alt="Dollar sign"></span>
+					</label>
+
+
+					<input type="text" id="bill" tabindex="1"
+					       class=" bg-grayishCyan-veryLight py-2 focus-within:outline-none focus:outline-none max-w-[100px]
+					       text-2xl text-bold rounded-r-lg "
+					>
+
+				</div>
+				<p class="text-sm absolute top-[16px] right-0 mt-0 text-orange-600 hidden" id="warningBill">
+					Please input number only
+				</p>
+			</div>
+
+			<div class="mb-5">
+				<h2 class="mb-3">Select Tip %</h2>
+
+				<!--Tip selector box-->
+				<div class="grid grid-cols-2 gap-5 md:grid-cols-3">
+					<div>
+						<input type="radio" name="tip-amount" id="fivePer" class="peer hidden" value="5">
+						<label for="fivePer" class="custom-label peer-checked:bg-primary peer-checked:text-darkCyan"
+						       tabindex="1">5%</label>
+					</div>
+					<div>
+						<input type="radio" name="tip-amount" id="tenPer" class="peer hidden" value="10">
+						<label for="tenPer" class="custom-label peer-checked:bg-primary peer-checked:text-darkCyan"
+						       tabindex="2">10%</label>
+					</div>
+					<div>
+						<input type="radio" name="tip-amount" id="fifPer" class="peer hidden" value="15">
+						<label for="fifPer" class="custom-label peer-checked:bg-primary peer-checked:text-darkCyan"
+						       tabindex="3">15%</label>
+					</div>
+					<div>
+						<input type="radio" name="tip-amount" id="ttfPer" class="peer hidden" value="25">
+						<label for="ttfPer" class="custom-label peer-checked:bg-primary peer-checked:text-darkCyan"
+						       tabindex="4">25%</label>
+					</div>
+					<div>
+						<input type="radio" name="tip-amount" id="halfPer" class="peer hidden" value="50">
+						<label for="halfPer" class="custom-label peer-checked:bg-primary peer-checked:text-darkCyan"
+						       tabindex="5">50%</label>
+					</div>
+					<div class="">
+						<input type="text" name="custom-tip" id="custom-tip" aria-label="custom tip"
+						       placeholder="Custom" tabindex="6"
+						       class="w-full h-full bg-grayishCyan-veryLight text-center text-2xl rounded-lg focus:border-2 focus:border-darkCyan focus-within:outline-none focus:placeholder-white focus:bg-white"
+						>
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-col  mb-5 relative">
+				<h2  class="mb-5 text-grayishCyan-normal">Number of People</h2>
+				<div class="flex bg-grayishCyan-veryLight justify-between items-center text-right rounded-lg border-2">
+					<label for="person" class="flex-1">
+						<span class="pl-5 mb-2 block"><img src="./images/icon-person.svg" alt="People sign"></span>
+					</label>
+
+					<!--TODO: make custom input which become disable after user input data and change into static style-->
+					<input type="text" id="person" tabindex="7"
+					       class=" bg-grayishCyan-veryLight py-2 focus-within:outline-none focus:outline-none max-w-[100px]
+					       text-2xl text-bold rounded-r-lg"
+					>
+				</div>
+
+				<p class="text-sm absolute top-[16px] right-0 mt-0 text-orange-600 hidden" id="warningPerson">
+					Please input number only
+				</p>
+
+			</div>
+
+		</div>
+
+		<!--Calculation result part-->
+		<div class="bg-darkCyan p-8 rounded-2xl md:w-1/2 md:flex md:flex-col">
+			<div class="flex flex-row justify-between mb-5 md:mb-10">
+				<p class="*:block">
+					<span class="text-white" id="bb">Tip Amount</span>
+					<span class="text-gray-400">/ person</span>
+				</p>
+				<p class="flex flex-row items-center space-x-1">
+					<span>
+						<img src="./images/icon-dollar.svg" alt="Icon of dollar sign">
+					</span>
+					<span id="tipPerPerson" class="text-3xl text-primary text-right">0.00</span>
+				</p>
+			</div>
+
+			<div class="flex flex-row justify-between mb-5 md:mb-10">
+				<p class="*:block">
+					<span class="text-white">Total</span>
+					<span class="text-gray-400">/ person</span>
+				</p>
+				<p class="flex flex-row items-center space-x-1">
+					<span>
+						<img src="./images/icon-dollar.svg" alt="Icon of dollar sign">
+					</span>
+					<span id="totalAmount" class="text-3xl text-primary text-right">0.00</span>
+				</p>
+			</div>
+
+			<button type="button" disabled id="reset-btn"
+			        class="disabled:bg-grayishCyan-normal w-full py-3 rounded-lg uppercase text-darkCyan bg-primary
+			        block transition-colors duration-300 ease-in hover:bg-grayishCyan-light md:mt-auto"
+			>
+				Reset
+			</button>
+		</div>
+	</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
