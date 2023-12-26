@@ -116,7 +116,7 @@ function calculate() {
 	const totalTip = document.getElementById("totalAmount");
 	
 	let totalTipAmount = totalBill * (tipPercentage / 100);
-	let tipPerPersonAmount = totalTipAmount / totalPerson;
+	let tipPerPersonAmount = (totalTipAmount / totalPerson) + (totalBill / totalPerson);
 	
 	tipPerPerson.innerText = "" + tipPerPersonAmount.toFixed(2);
 	totalTip.innerText = "" + totalTipAmount.toFixed(2);
